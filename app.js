@@ -8,13 +8,15 @@ const router = require('./routes/blogRoutes.js');//setting up express router
 
 // express app
 const app = express();
+const PORT = process.env.PORT || 3000;
+
 
 //connect to mongodb
 const dbURI = 'mongodb+srv://curiouslad:apple123@cluster0.4olsv.mongodb.net/node-tuts-blog?retryWrites=true&w=majority&appName=Cluster0';
 mongoose.connect(dbURI)
 .then((result)=>{
   console.log('connected to db');
-  app.listen(3000); //listening for server request only after it gets connected to database
+  app.listen(PORT); //listening for server request only after it gets connected to database
 })
 .catch((err)=>{console.log(err)});
 
